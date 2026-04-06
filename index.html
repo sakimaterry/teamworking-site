@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeamWorking by TechNexus — Chicago's Tech-Focused Workspace Community</title>
+<meta name="description" content="TeamWorking is a private, vibrant workspace community for founders, innovators, and growing tech teams in Chicago. 60,000+ sq ft in the Civic Opera Building. 75+ companies. 750+ alumni.">
+<meta name="keywords" content="coworking Chicago, tech workspace, shared office Chicago, startup office, TeamWorking, TechNexus, Civic Opera Building, flexible office">
+<link rel="canonical" href="https://teamworking.technexus.com/">
+<meta property="og:title" content="TeamWorking by TechNexus — Chicago's Tech-Focused Workspace Community">
+<meta property="og:description" content="Where Chicago's tech community gathers. Flexible workspaces, meeting rooms, and a vibrant ecosystem of 75+ companies in the Civic Opera Building.">
+<meta property="og:url" content="https://teamworking.technexus.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark: #1a1f2e;
+  --blue: #2563eb;
+  --blue-light: #3b82f6;
+  --orange: #F99601;
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --text: #1a1f2e;
+  --text-body: #4a4a4a;
+  --text-muted: #8a8a8a;
+  --rule: #e5e7eb;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:0.3s;}
+.nav.scrolled{background:rgba(26,31,46,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.15);}
+.nav-logo img{height:36px;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{color:rgba(255,255,255,0.7);font-size:14px;font-weight:500;transition:0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:var(--orange);color:var(--dark)!important;padding:8px 20px;border-radius:4px;font-weight:600;font-size:13px;}
+.nav-cta:hover{background:#ffaa1a;}
+
+/* Hero */
+.hero{min-height:100vh;background:var(--dark);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 40px 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url('/images/hero.jpg') center/cover;opacity:0.2;}
+.hero-content{position:relative;z-index:1;max-width:800px;}
+.hero h1{font-size:clamp(36px,5vw,56px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;}
+.hero h1 span{color:var(--orange);}
+.hero p{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.65);margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:4px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:0.2s;font-family:inherit;}
+.btn-primary{background:var(--orange);color:var(--dark);}
+.btn-primary:hover{background:#ffaa1a;transform:translateY(-1px);}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.25);}
+.btn-outline:hover{border-color:#fff;color:#fff;}
+
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);}
+.stat{text-align:center;padding:36px 20px;border-right:1px solid rgba(255,255,255,0.06);}
+.stat:last-child{border-right:none;}
+.stat .num{font-size:36px;font-weight:800;color:var(--orange);}
+.stat .label{font-size:12px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;margin-top:6px;}
+
+/* Sections */
+.section{padding:80px 40px;}
+.section-alt{background:var(--bg-alt);}
+.container{max-width:1100px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:48px;}
+.section-header h2{font-size:32px;font-weight:800;margin-bottom:12px;}
+.section-header p{font-size:16px;color:var(--text-body);max-width:600px;margin:0 auto;line-height:1.7;}
+
+/* Workspaces grid */
+.ws-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.ws-card{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:32px;transition:0.2s;}
+.ws-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.06);transform:translateY(-2px);}
+.ws-card h3{font-size:20px;font-weight:700;margin-bottom:8px;}
+.ws-card .price{font-size:14px;color:var(--orange);font-weight:600;margin-bottom:12px;}
+.ws-card ul{list-style:none;font-size:14px;color:var(--text-body);line-height:1.9;}
+.ws-card ul li::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:10px;vertical-align:middle;}
+
+/* Amenities */
+.amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.amenity{text-align:center;padding:28px 20px;background:var(--bg);border:1px solid var(--rule);border-radius:8px;}
+.amenity .icon{font-size:28px;margin-bottom:12px;}
+.amenity h4{font-size:14px;font-weight:700;margin-bottom:6px;}
+.amenity p{font-size:12px;color:var(--text-muted);line-height:1.5;}
+
+/* Ecosystem */
+.eco-logos{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+.eco-tag{background:var(--bg);border:1px solid var(--rule);padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500;color:var(--text-body);}
+
+/* Events */
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.event-card{background:var(--bg);border:1px solid var(--rule);border-radius:8px;overflow:hidden;transition:0.2s;}
+.event-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.06);}
+.event-card .event-body{padding:20px;}
+.event-card h4{font-size:15px;font-weight:700;margin-bottom:6px;}
+.event-card p{font-size:13px;color:var(--text-body);line-height:1.6;}
+
+/* Community Partners */
+.partners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.partner{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:20px;transition:0.2s;}
+.partner:hover{box-shadow:0 4px 20px rgba(0,0,0,0.05);}
+.partner h4{font-size:14px;font-weight:700;margin-bottom:6px;}
+.partner p{font-size:12px;color:var(--text-muted);line-height:1.6;}
+
+/* Blog */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.blog-card{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:24px;transition:0.2s;}
+.blog-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.06);}
+.blog-card .date{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.blog-card h4{font-size:15px;font-weight:700;margin-bottom:8px;line-height:1.4;}
+.blog-card p{font-size:13px;color:var(--text-body);line-height:1.6;}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.contact-info h3{font-size:20px;font-weight:700;margin-bottom:16px;}
+.contact-info p{font-size:14px;color:var(--text-body);line-height:1.7;margin-bottom:12px;}
+.contact-info .detail{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-body);margin-bottom:8px;}
+.contact-form{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:32px;}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:10px 14px;border:1px solid var(--rule);border-radius:4px;font-family:inherit;font-size:14px;margin-bottom:14px;transition:0.2s;}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 2px rgba(249,150,1,0.12);}
+.contact-form textarea{min-height:100px;resize:vertical;}
+.contact-form label{display:block;font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.3px;}
+
+/* Footer */
+.footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:48px 40px 24px;font-size:13px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;}
+.footer h4{color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.footer a{color:rgba(255,255,255,0.5);transition:0.2s;display:block;margin-bottom:8px;}
+.footer a:hover{color:var(--orange);}
+.footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom .tn-link{color:var(--orange);}
+
+/* Entity definition (LLMO) */
+.entity-def{max-width:800px;margin:0 auto;padding:0 20px;font-size:15px;line-height:1.8;color:var(--text-body);}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav{padding:12px 20px;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .hero{padding:100px 20px 60px;}
+  .stats-bar{grid-template-columns:repeat(2,1fr);}
+  .section{padding:60px 20px;}
+  .ws-grid,.amenities-grid,.events-grid,.partners-grid,.blog-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+
+/* Fade-in */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+</style>
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CoworkingSpace",
+  "name": "TeamWorking by TechNexus",
+  "description": "Chicago's tech-focused workspace community. A private, vibrant community for founders, innovators, and growing tech teams in Chicago's Civic Opera Building.",
+  "url": "https://teamworking.technexus.com",
+  "telephone": "+1-312-924-1026",
+  "email": "info@teamworking.vc",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "20 N. Wacker Drive, 12th Floor",
+    "addressLocality": "Chicago",
+    "addressRegion": "IL",
+    "postalCode": "60606",
+    "addressCountry": "US"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "TechNexus Venture Collaborative",
+    "url": "https://www.technexus.com"
+  },
+  "amenityFeature": [
+    {"@type": "LocationFeatureSpecification", "name": "High-Speed WiFi", "value": "400Mbps"},
+    {"@type": "LocationFeatureSpecification", "name": "Meeting Rooms"},
+    {"@type": "LocationFeatureSpecification", "name": "Event Space", "value": "Up to 175 guests"},
+    {"@type": "LocationFeatureSpecification", "name": "Fitness Center"},
+    {"@type": "LocationFeatureSpecification", "name": "Rooftop Terrace", "value": "10,000 sq ft"},
+    {"@type": "LocationFeatureSpecification", "name": "Podcast Studio"}
+  ],
+  "floorSize": {"@type": "QuantitativeValue", "value": 60000, "unitCode": "FTK"},
+  "foundingDate": "2007",
+  "sameAs": [
+    "https://www.instagram.com/teamworkingbytechnexus/",
+    "https://www.linkedin.com/company/teamworking-by-technexus/"
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is TeamWorking by TechNexus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TeamWorking is a private, tech-focused workspace community in Chicago's Civic Opera Building. Born from TechNexus Venture Collaborative, it offers 60,000+ sq ft of flexible office space, meeting rooms, event venues, and a vibrant ecosystem of 75+ technology companies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is TeamWorking located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TeamWorking is located at 20 N. Wacker Drive, 12th Floor, Chicago, IL 60606 — in the historic Civic Opera Building near Union Station, Ogilvie Transportation Center, and CTA lines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of workspace does TeamWorking offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TeamWorking offers four workspace options: Private Suites for teams up to 50, Offices for teams up to 8 (starting at $1,000/month), Team Coworking for flexible team seating, and Individual Coworking for solo professionals. All options include no long-term lease requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What amenities are included at TeamWorking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Amenities include 400Mbps WiFi, conference rooms, a 10,000 sq ft rooftop terrace, fitness center, podcast studio with Shure equipment, 3 kitchens with unlimited beverages, wellness rooms, printing, mail services, and 24/7 keycard access."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo"><img src="/images/logo-color.png" alt="TeamWorking by TechNexus" style="height:36px;"></a>
+  <div class="nav-links">
+    <a href="#workspaces">Workspaces</a>
+    <a href="#events">Events</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#ecosystem">Ecosystem</a>
+    <a href="#insights">Insights</a>
+    <a href="#contact">Connect</a>
+    <a href="https://calendly.com/teamworking/tour" target="_blank" class="nav-cta">Book a Tour</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content fade-in">
+    <h1>Chicago's <span>Tech-Focused</span> Community</h1>
+    <p>Born out of TechNexus Venture Collaborative, this is where firms ready to scale find a home and grow — without long-term obligations.</p>
+    <div class="hero-actions">
+      <a href="#workspaces" class="btn btn-primary">Explore Workspaces</a>
+      <a href="https://calendly.com/teamworking/tour" target="_blank" class="btn btn-outline">Book a Tour</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat"><div class="num">60K+</div><div class="label">Square Feet</div></div>
+  <div class="stat"><div class="num">75+</div><div class="label">Tech Companies</div></div>
+  <div class="stat"><div class="num">750+</div><div class="label">Alumni</div></div>
+  <div class="stat"><div class="num">2007</div><div class="label">Established</div></div>
+</div>
+
+<!-- Entity Definition (LLMO) -->
+<div class="section" style="padding:48px 40px 0;">
+  <div class="entity-def fade-in">
+    <p>TeamWorking by TechNexus is a private, tech-focused workspace community located in Chicago's Civic Opera Building at 20 N. Wacker Drive. Established in 2007 as part of TechNexus Venture Collaborative, TeamWorking offers over 60,000 square feet of flexible office suites, private offices, coworking spaces, meeting rooms, and event venues for technology companies and startups. The community currently houses 75+ technology companies and has grown to more than 750 alumni, including graduates like Capital One, Rally Health, Threekit, and Ocient. Amenities include 400Mbps WiFi, a 10,000 sq ft rooftop terrace, fitness center, Shure-equipped podcast studio, and event space for up to 175 guests.</p>
+  </div>
+</div>
+
+<!-- Workspaces -->
+<section class="section" id="workspaces">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Flexible Workspaces</h2>
+      <p>From private suites to individual desks, we scale with your team — no long-term lease required.</p>
+    </div>
+    <div class="ws-grid">
+      <div class="ws-card fade-in">
+        <h3>Suites</h3>
+        <div class="price">Custom pricing — teams up to 50</div>
+        <ul>
+          <li>Fully furnished, scalable configurations</li>
+          <li>Move-in ready with custom buildout options</li>
+          <li>Access to all shared spaces and amenities</li>
+          <li>On-demand conference and meeting rooms</li>
+          <li>Secure keycard entry, no lease required</li>
+        </ul>
+      </div>
+      <div class="ws-card fade-in">
+        <h3>Offices</h3>
+        <div class="price">Starting at $1,000/month</div>
+        <ul>
+          <li>Private offices for teams of 1–8</li>
+          <li>Small (1–3): from $1,000 · Medium (4–6): from $1,700</li>
+          <li>Large (5–8): from $1,900</li>
+          <li>Full access to coworking amenities</li>
+          <li>Secure keycard entry, no lease required</li>
+        </ul>
+      </div>
+      <div class="ws-card fade-in">
+        <h3>Team Coworking</h3>
+        <div class="price">Contact for pricing</div>
+        <ul>
+          <li>Flexible shared workspace for your team</li>
+          <li>Access to conference and huddle rooms</li>
+          <li>Phone booths and collaboration areas</li>
+          <li>Business address options available</li>
+          <li>All building amenities included</li>
+        </ul>
+      </div>
+      <div class="ws-card fade-in">
+        <h3>Individual Coworking</h3>
+        <div class="price">Contact for pricing</div>
+        <ul>
+          <li>Solo professional workspace access</li>
+          <li>Shared amenities and common areas</li>
+          <li>On-demand meeting rooms</li>
+          <li>Huddle rooms and phone booths</li>
+          <li>Business address for hybrid workers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Amenities -->
+<section class="section section-alt" id="amenities">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Premium Amenities</h2>
+      <p>Everything you need to do your best work — from high-speed internet to a rooftop terrace with skyline views.</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity fade-in"><div class="icon">&#9889;</div><h4>Ultra-Fast WiFi</h4><p>400Mbps up/down with 1Gbps backbone. Secure ethernet at every desk.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#127979;</div><h4>Conference Rooms</h4><p>High-tech meeting rooms with A/V. Reserve via space management software.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#127749;</div><h4>Rooftop Terrace</h4><p>10,000 sq ft outdoor terrace on the 15th floor with private WiFi.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#127947;</div><h4>Fitness Center</h4><p>On-site gym on the 15th floor with showers and lockers. Open 7 days.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#127908;</div><h4>Podcast Studio</h4><p>Professional studio with Shure plug-and-play tech and green screen editing suite.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#9749;</div><h4>3 Full Kitchens</h4><p>Unlimited coffee, tea, and soft drinks via Coca-Cola Freestyle. Refrigerators and microwaves.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#128274;</div><h4>24/7 Access</h4><p>Secure RFID keycard entry around the clock. Your space, your schedule.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#128232;</div><h4>Mail & Printing</h4><p>Secure mailroom, forwarding, in-building FedEx/UPS, and free color printing.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#128187;</div><h4>IT Support</h4><p>On-site IT manager for tech support and network needs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Events -->
+<section class="section" id="events">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Events & Meeting Space</h2>
+      <p>From team offsites to 175-person conferences, with dedicated coordination, A/V, and catering.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card fade-in">
+        <div class="event-body">
+          <h4>Meeting Rooms</h4>
+          <p>High-tech conference rooms with professional A/V throughout the facility. Reserve by the hour via our space management platform.</p>
+        </div>
+      </div>
+      <div class="event-card fade-in">
+        <div class="event-body">
+          <h4>Meeting Membership</h4>
+          <p>Hour bundle packages with 1-year expiration. Perfect for companies that need regular collaboration space in the Loop.</p>
+        </div>
+      </div>
+      <div class="event-card fade-in">
+        <div class="event-body">
+          <h4>Executive Meetings</h4>
+          <p>Dedicated personal concierge, all-day coffee, catered meals, modular layouts, and secure overnight storage for multi-day bookings.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;" class="fade-in">
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:4px;">Trusted by teams from</p>
+      <p style="font-size:15px;font-weight:600;">NASA Space Apps Challenge &middot; Airbnb &middot; McDonald's &middot; HOKA &middot; Oatly &middot; Snowflake</p>
+    </div>
+  </div>
+</section>
+
+<!-- Ecosystem -->
+<section class="section section-alt" id="ecosystem">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Our Ecosystem</h2>
+      <p>75+ technology companies under one roof. A curated community where founders, investors, and innovators collaborate daily.</p>
+    </div>
+    <div class="eco-logos fade-in">
+      <span class="eco-tag">Acceleron Corp</span><span class="eco-tag">Cellares</span>
+      <span class="eco-tag">Cohesive Networks</span><span class="eco-tag">DeepHow</span>
+      <span class="eco-tag">Dragonfly</span><span class="eco-tag">Jellyfish Digital</span>
+      <span class="eco-tag">Jellyvision</span><span class="eco-tag">Koios</span>
+      <span class="eco-tag">Losant</span><span class="eco-tag">Network Perception</span>
+      <span class="eco-tag">Ocient</span><span class="eco-tag">ReelCrafter</span>
+      <span class="eco-tag">SupplyHive</span><span class="eco-tag">TechNexus VC</span>
+      <span class="eco-tag">The Forge</span><span class="eco-tag">TruckSmarter</span>
+      <span class="eco-tag">TrustVector AI</span><span class="eco-tag">Vaimo</span>
+      <span class="eco-tag">Decisive BI</span><span class="eco-tag">Forward Progress</span>
+      <span class="eco-tag">GainShare</span><span class="eco-tag">IrishAngels</span>
+      <span class="eco-tag">Long Jump</span><span class="eco-tag">Loud Capital</span>
+      <span class="eco-tag">Code Your Dreams</span><span class="eco-tag">iMentor</span>
+      <span class="eco-tag">ISTC</span><span class="eco-tag">Chicago:Blend</span>
+    </div>
+    <div style="text-align:center;margin-top:24px;font-size:13px;color:var(--text-muted);" class="fade-in">
+      Notable alumni: Capital One &middot; Rally Health &middot; Synap Software &middot; Threekit
+    </div>
+  </div>
+</section>
+
+<!-- Community Partners -->
+<section class="section" id="partners">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Community Partners</h2>
+      <p>The organizations that strengthen our ecosystem and support Chicago's innovation community.</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner fade-in"><h4>World Business Chicago</h4><p>Chicago's public-private economic development agency focused on inclusion and business support.</p></div>
+      <div class="partner fade-in"><h4>V2:VC</h4><p>Peer community for emerging Chicago venture investors offering professional growth and networking.</p></div>
+      <div class="partner fade-in"><h4>Midwest House</h4><p>Supporting regional innovators with international visibility and Midwest collaboration initiatives.</p></div>
+      <div class="partner fade-in"><h4>Chicago Tech Academy</h4><p>Educating diverse entrepreneurial youth through project-based learning and tech partnerships.</p></div>
+      <div class="partner fade-in"><h4>Chicago:Blend</h4><p>VC collaborative emphasizing diverse teams and inclusive environments as foundations for startup success.</p></div>
+      <div class="partner fade-in"><h4>IrishAngels</h4><p>Notre Dame-affiliated angel network providing portfolio support through connections and integrity.</p></div>
+      <div class="partner fade-in"><h4>LongJump</h4><p>Founder-led seed fund offering up to $100k in capital along with community connections.</p></div>
+      <div class="partner fade-in"><h4>StartOut</h4><p>Accelerating LGBTQ+ entrepreneurs through resource access, community building, and capital.</p></div>
+      <div class="partner fade-in"><h4>ISTC</h4><p>Non-profit driving tech-based economic development across Illinois research and science sectors.</p></div>
+      <div class="partner fade-in"><h4>Angeles Investors</h4><p>Dedicated to funding Hispanic and Latinx ventures with investor networking opportunities.</p></div>
+      <div class="partner fade-in"><h4>Polsky Center</h4><p>University of Chicago entrepreneurship hub supporting faculty inventors and commercialization.</p></div>
+      <div class="partner fade-in"><h4>Discovery Partners</h4><p>University of Illinois System initiative advancing Chicago's tech ecosystem through workforce training.</p></div>
+      <div class="partner fade-in"><h4>Coleman Center (DePaul)</h4><p>DePaul University resource empowering students and community through experiential programs.</p></div>
+      <div class="partner fade-in"><h4>Gray Matter Experience</h4><p>Bridging entrepreneurial knowledge gaps for Black changemakers pursuing community impact.</p></div>
+      <div class="partner fade-in"><h4>Hyde Park Angels</h4><p>Early-stage investor using a People First model for startup success and economic growth.</p></div>
+      <div class="partner fade-in"><h4>M25</h4><p>Chicago early-stage firm investing regionally using analytical risk reduction approaches.</p></div>
+      <div class="partner fade-in"><h4>OCA Ventures</h4><p>Early-stage VC targeting technology and scalable services at Seed through Series B.</p></div>
+      <div class="partner fade-in"><h4>Capital VC</h4><p>Invests in high-growth tech and consumer brands while supporting diverse founders.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Insights / Blog -->
+<section class="section section-alt" id="insights">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Insights</h2>
+      <p>News, newsletters, and thought leadership from the TeamWorking community.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card fade-in">
+        <div class="date">September 2024</div>
+        <h4>The Fire Awards</h4>
+        <p>TeamWorking hosted Chicago Inno's return of the Fire Awards, bringing together the Chicago tech community for a night of celebration.</p>
+      </div>
+      <div class="blog-card fade-in">
+        <div class="date">April 2024</div>
+        <h4>The Evolution of Coworking Spaces</h4>
+        <p>How coworking spaces have revolutionized work environments and the impact of social support on professional communities.</p>
+      </div>
+      <div class="blog-card fade-in">
+        <div class="date">March 2024</div>
+        <h4>Coworking & Social Fulfillment</h4>
+        <p>Exploring whether hybrid work combats employee loneliness and how shared spaces foster meaningful connections.</p>
+      </div>
+      <div class="blog-card fade-in">
+        <div class="date">February 2024</div>
+        <h4>Combating Remote Work Loneliness</h4>
+        <p>Coworking spaces serve a purpose beyond providing a physical location — they build professional communities.</p>
+      </div>
+      <div class="blog-card fade-in">
+        <div class="date">January 2024</div>
+        <h4>Revolutionizing the Work Landscape</h4>
+        <p>Working from home reshaped the economy. How are tech-driven workspaces redefining productivity and collaboration?</p>
+      </div>
+      <div class="blog-card fade-in">
+        <div class="date">October 2023</div>
+        <h4>How TeamWorking Supports Entrepreneurs</h4>
+        <p>Genuine human interactions and face-to-face collaboration in the post-remote work era.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <h3>Let's Connect</h3>
+        <p>Whether you're looking for flexible workspace, event space, or a community to grow with — we'd love to hear from you.</p>
+        <div style="margin-top:24px;">
+          <div class="detail"><strong>Address:</strong> 20 N. Wacker Drive, 12th Floor, Chicago, IL 60606</div>
+          <div class="detail"><strong>Phone:</strong> <a href="tel:+13129241026" style="color:var(--orange);">+1.312.924.1026</a></div>
+          <div class="detail"><strong>Email:</strong> <a href="mailto:info@teamworking.vc" style="color:var(--orange);">info@teamworking.vc</a></div>
+        </div>
+        <div style="margin-top:24px;display:flex;gap:16px;">
+          <a href="https://www.instagram.com/teamworkingbytechnexus/" target="_blank" style="color:var(--text-muted);font-size:14px;">Instagram</a>
+          <a href="https://www.linkedin.com/company/teamworking-by-technexus/" target="_blank" style="color:var(--text-muted);font-size:14px;">LinkedIn</a>
+          <a href="https://twitter.com/TechNexus" target="_blank" style="color:var(--text-muted);font-size:14px;">X / Twitter</a>
+        </div>
+      </div>
+      <div class="contact-form fade-in">
+        <form id="contact-form" onsubmit="submitContact(event)">
+          <label>Your Name</label>
+          <input type="text" name="name" required placeholder="Full name">
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="you@company.com">
+          <label>Company</label>
+          <input type="text" name="company" placeholder="Company or organization">
+          <label>Interest</label>
+          <select name="interest">
+            <option value="">What brings you our way?</option>
+            <option>Flexible office space</option>
+            <option>Team retreat or offsite</option>
+            <option>Meeting or event venue</option>
+            <option>Individual coworking</option>
+            <option>Partnership opportunity</option>
+            <option>General inquiry</option>
+          </select>
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us about your needs..."></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+        </form>
+        <div id="form-success" style="display:none;text-align:center;padding:32px;color:var(--text-body);">
+          <div style="font-size:24px;margin-bottom:12px;">&#10003;</div>
+          <p style="font-weight:600;">Thanks! We'll be in touch soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <img src="/images/logo-color.png" alt="TeamWorking" style="height:28px;margin-bottom:16px;filter:brightness(0) invert(1);">
+      <p style="line-height:1.7;">A private, vibrant community designed specifically for founders, innovators, and growing teams in Chicago.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#workspaces">Workspaces</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#events">Events</a>
+      <a href="#ecosystem">Ecosystem</a>
+    </div>
+    <div>
+      <h4>Community</h4>
+      <a href="#partners">Partners</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact">Connect</a>
+      <a href="https://calendly.com/teamworking/tour" target="_blank">Book a Tour</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+13129241026">+1.312.924.1026</a>
+      <a href="mailto:info@teamworking.vc">info@teamworking.vc</a>
+      <p style="margin-top:8px;">20 N. Wacker Dr., 12th Fl.<br>Chicago, IL 60606</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 TeamWorking by TechNexus. All rights reserved.</span>
+    <span>TeamWorking is the workspace of <a href="https://www.technexus.com" class="tn-link">TechNexus Venture Collaborative</a></span>
+  </div>
+</footer>
+
+<script>
+// Scroll nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Contact form
+function submitContact(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = Object.fromEntries(new FormData(form));
+  // POST to server
+  fetch('/api/contact', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  }).then(() => {
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = '';
+  }).catch(() => {
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = '';
+  });
+}
+</script>
+</body>
+</html>
