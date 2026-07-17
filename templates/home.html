@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --dark: #1a1f2e;
@@ -36,7 +36,7 @@ img{max-width:100%;display:block;}
 /* Nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:0.3s;}
 .nav.scrolled{background:rgba(26,31,46,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-logo img{height:36px;}
+.nav-logo img{height:36px;filter:brightness(0) invert(1);}
 .nav-links{display:flex;align-items:center;gap:32px;}
 .nav-links a{color:rgba(255,255,255,0.7);font-size:14px;font-weight:500;transition:0.2s;}
 .nav-links a:hover{color:#fff;}
@@ -49,7 +49,7 @@ img{max-width:100%;display:block;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease-in-out;}
 .hero-slide.active{opacity:0.30;}
 .hero-content{position:relative;z-index:1;max-width:800px;}
-.hero h1{font-size:clamp(36px,5vw,56px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;}
+.hero h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(38px,5vw,58px);font-weight:400;color:#fff;line-height:1.1;margin-bottom:20px;}
 .hero h1 span{color:var(--orange);}
 .hero p{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.65);margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;}
 .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
@@ -63,7 +63,7 @@ img{max-width:100%;display:block;}
 .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);}
 .stat{text-align:center;padding:36px 20px;border-right:1px solid rgba(255,255,255,0.06);}
 .stat:last-child{border-right:none;}
-.stat .num{font-size:36px;font-weight:800;color:var(--orange);}
+.stat .num{font-family:'DM Serif Display',Georgia,serif;font-size:40px;font-weight:400;color:var(--orange);}
 .stat .label{font-size:12px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;margin-top:6px;}
 
 /* Sections */
@@ -71,7 +71,7 @@ img{max-width:100%;display:block;}
 .section-alt{background:var(--bg-alt);}
 .container{max-width:1100px;margin:0 auto;}
 .section-header{text-align:center;margin-bottom:48px;}
-.section-header h2{font-size:32px;font-weight:800;margin-bottom:12px;}
+.section-header h2{font-family:'DM Serif Display',Georgia,serif;font-size:34px;font-weight:400;margin-bottom:12px;}
 .section-header p{font-size:16px;color:var(--text-body);max-width:600px;margin:0 auto;line-height:1.7;}
 
 /* Workspaces grid */
