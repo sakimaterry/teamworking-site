@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Membership — TeamWorking by TechNexus{% endblock %}
+{% set meta_description = "Community & flexible memberships for founders, investors, and operators. Day passes, Flex+ membership, team suites, and virtual office at Chicago's Civic Opera Building." %}
+
+{% block hero %}
+<section class="page-hero" style="padding:160px 40px 90px;">
+  <div class="page-hero-img" style="position:absolute;inset:0;background:url('/images/wp/2023-07-BF2A7675-2048x1366.jpg') center/cover;opacity:.30;"></div>
+  <div class="inner" style="position:relative;z-index:1;max-width:760px;">
+    <div class="breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; Membership</div>
+    <h1 style="font-family:'DM Serif Display',Georgia,serif;font-weight:400;">The room where Chicago's next big thing gets started.</h1>
+    <p style="font-size:19px;">Community &amp; flexible memberships for founders, investors, and operators who know that proximity is the point.</p>
+    <div style="margin-top:26px;">
+      <a href="/virtual-tour" class="btn btn-primary">Take a virtual tour</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<style>
+  .m-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:1140px;margin:0 auto;padding:40px 24px 8px;}
+  .m-gallery img{width:100%;height:180px;object-fit:cover;border-radius:8px;display:block;}
+  .m-gallery img:first-child,.m-gallery img:nth-child(6){grid-column:span 2;height:auto;}
+  .m-pricing{max-width:1140px;margin:0 auto;padding:48px 24px 20px;}
+  .m-pricing-head{text-align:center;margin-bottom:36px;}
+  .m-pricing-head h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:34px;color:var(--text);}
+  .m-pricing-head p{color:var(--text-body);margin-top:8px;}
+  .tier-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .tier{border:1px solid var(--rule);border-radius:12px;padding:30px;background:#fff;display:flex;flex-direction:column;}
+  .tier.featured{border-color:var(--orange);box-shadow:0 8px 30px rgba(249,150,1,.10);}
+  .tier .badge-pop{align-self:flex-start;background:var(--orange);color:var(--dark);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 10px;border-radius:20px;margin-bottom:12px;}
+  .tier h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:24px;color:var(--text);}
+  .tier .price{font-size:15px;color:var(--orange);font-weight:700;margin:4px 0 2px;}
+  .tier .lede{color:var(--text-body);font-size:14.5px;margin:8px 0 16px;line-height:1.6;}
+  .tier ul{list-style:none;margin:0 0 20px;padding:0;flex:1;}
+  .tier li{font-size:13.5px;color:var(--text-body);line-height:1.5;padding-left:22px;position:relative;margin:9px 0;}
+  .tier li::before{content:'✓';position:absolute;left:0;color:var(--orange);font-weight:700;}
+  .tier .btn{align-self:flex-start;}
+  .tier .fine{font-size:12px;color:var(--text-muted);margin-top:10px;}
+  .m-close{background:var(--dark);color:#fff;text-align:center;padding:72px 24px;margin-top:48px;}
+  .m-close h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:34px;color:#fff;max-width:720px;margin:0 auto;}
+  .m-close p{color:rgba(255,255,255,.72);max-width:640px;margin:16px auto 0;font-size:16px;line-height:1.7;}
+  .m-close .actions{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  @media(max-width:820px){.m-gallery{grid-template-columns:repeat(2,1fr);}.tier-grid{grid-template-columns:1fr;}
+    .m-gallery img:first-child,.m-gallery img:nth-child(6){grid-column:span 2;}}
+</style>
+
+<div class="m-gallery">
+  <img src="/images/wp/2023-07-BF2A7675-2048x1366.jpg" alt="TeamWorking coworking space">
+  <img src="/images/wp/2022-12-BF2A7800.jpg" alt="TeamWorking lounge">
+  <img src="/images/wp/2022-11-22_20NWackerDrive_1200FloorTheCivicOperaBuilding_2010_HiRes-2048x1365.jpg" alt="Workspace">
+  <img src="/images/wp/2022-12-BF2A7818-2048x1366.jpg" alt="Members at work">
+  <img src="/images/wp/2022-11-08_20NWackerDrive_1200FloorTheCivicOperaBuilding_54_Office_HiRes-2048x1365.jpg" alt="Private office">
+  <img src="/images/wp/2022-12-BF2A7714-2048x1366.jpg" alt="Collaboration area">
+  <img src="/images/wp/2021-09-20-N-Wacker-Chicago-IL-60606-print-014-013-Kitchen-Facilities-3791x2530-300dpi-2048x1367.jpg" alt="Kitchen">
+  <img src="/images/wp/2022-12-BF2A7579-2048x1366.jpg" alt="Community event">
+</div>
+
+<div class="m-pricing">
+  <div class="m-pricing-head">
+    <h2>Simple, transparent pricing</h2>
+    <p>Flexible terms. Activating your access is easy and seamless.</p>
+  </div>
+  <div class="tier-grid">
+
+    <div class="tier">
+      <h3>Try the Room — Day Pass</h3>
+      <div class="lede">No commitment. Just come in and see what you've been missing. One-time purchase, no membership required.</div>
+      <ul>
+        <li>Full access to all shared workspace</li>
+        <li>3 kitchens — Big Shoulders Coffee, Bevi, Coca-Cola Freestyle, local beer on tap</li>
+        <li>Self-bookable call rooms &amp; phone booths</li>
+        <li>Fast + secure Wi-Fi</li>
+        <li>Wellness and parent rooms</li>
+        <li>Discounts on Creator/Podcast Studio access</li>
+      </ul>
+      <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener" class="btn btn-primary">Buy a Day Pass</a>
+      <div class="fine">Quick checkout — card details only. No account setup or recurring membership required.</div>
+    </div>
+
+    <div class="tier featured">
+      <span class="badge-pop">Most popular</span>
+      <h3>Flex+ Membership</h3>
+      <div class="price">$249 / month</div>
+      <div class="lede">Community access, shared workspaces, business address, and a place that puts you in the room. Mon–Fri, 9AM–5PM access.</div>
+      <ul>
+        <li>Self-bookable huddle rooms &amp; phone booths</li>
+        <li>3 full kitchens + local beer on tap</li>
+        <li>Online community access + member network</li>
+        <li>Business mailing address — Civic Opera Building</li>
+        <li>Secure mailroom handling</li>
+        <li>Steps from Union Station, Ogilvie (OTC) &amp; CTA</li>
+        <li>Discounted member-pricing for select event spaces &amp; board rooms</li>
+        <li>Full ecosystem event &amp; community programming — networking events, founder dinners, investor salons, growth labs, and more</li>
+      </ul>
+      <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener" class="btn btn-primary">Join as a Member</a>
+    </div>
+
+    <div class="tier">
+      <h3>Team Memberships &amp; Private Office Suites</h3>
+      <div class="lede">For teams who need more than a desk — a dedicated homebase in the ecosystem. Team memberships start at 3+ members; private offices by request, capacity limited.</div>
+      <ul>
+        <li>All Flex+ Membership benefits… and more</li>
+        <li>Flexible team membership pricing (3+ members)</li>
+        <li>Discounted member-pricing for all event &amp; meeting room space</li>
+        <li>Tools and tech-stack perks — software, cloud &amp; partner discounts</li>
+        <li>Creator Studio access (podcast &amp; editing suite)</li>
+        <li>Dedicated offices &amp; short-term leases available, pending availability</li>
+      </ul>
+      <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener" class="btn btn-primary">Inquire About Team Options</a>
+    </div>
+
+    <div class="tier">
+      <h3>Virtual Office — Business Address</h3>
+      <div class="price">$99 / month</div>
+      <div class="lede">Need a Chicago address without the desk? Business mailing address + secure mailroom at the Civic Opera Building — fully remote-friendly. Includes 1 FlexDay pass per month.</div>
+      <ul>
+        <li>Prestigious Civic Opera Building business address</li>
+        <li>Secure mailroom handling &amp; forwarding</li>
+        <li>1 FlexDay pass per month</li>
+        <li>Online community access</li>
+      </ul>
+      <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="m-close">
+  <h2>You can't schedule serendipity. You can only put yourself in its path.</h2>
+  <p>TechNexus community membership gives you access to what exists today — and a stake in what the Chicago venture ecosystem becomes.</p>
+  <div class="actions">
+    <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener" class="btn btn-primary">Connect With Us</a>
+    <a href="mailto:info@teamworking.vc" class="btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);">Ask the membership team →</a>
+  </div>
+</div>
+{% endblock %}
