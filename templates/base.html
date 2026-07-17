@@ -1,51 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}TeamWorking by TechNexus{% endblock %}</title>
 {% if meta_description %}<meta name="description" content="{{ meta_description }}">{% endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--dark:#1a1f2e;--blue:#2563eb;--blue-light:#3b82f6;--orange:#F99601;
-        --bg:#fff;--bg-alt:#f8f9fa;--text:#1a1f2e;--text-body:#4a4a4a;--text-muted:#8a8a8a;--rule:#e5e7eb;}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text-body);background:var(--bg);line-height:1.65}
-  a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-  img{max-width:100%;height:auto}
-  .nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-       padding:14px 32px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
-  .nav-links{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
-  .nav-links a{color:var(--text);font-weight:500;font-size:14.5px}
-  .nav-cta{background:var(--orange);color:#fff!important;padding:9px 18px;border-radius:8px;font-weight:600}
-  .nav-cta:hover{filter:brightness(.95);text-decoration:none}
-  .wrap{max-width:900px;margin:0 auto;padding:56px 24px}
-  .wrap-wide{max-width:1140px;margin:0 auto;padding:56px 24px}
-  h1,h2,h3,h4{color:var(--text);line-height:1.25;font-weight:700}
-  .prose h1{font-size:34px;margin:28px 0 14px}.prose h2{font-size:26px;margin:26px 0 12px}
-  .prose h3{font-size:20px;margin:22px 0 10px}
-  .prose p{margin:0 0 16px;font-size:17px}.prose ul,.prose ol{margin:0 0 16px 22px}.prose li{margin:6px 0}
-  .prose img{border-radius:10px;margin:18px 0}
-  .page-head{border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:8px}
-  .page-head h1{font-size:38px;font-weight:800}
-  .footer{background:var(--dark);color:#c7ccd6;margin-top:60px}
-  .footer-grid{max-width:1140px;margin:0 auto;padding:52px 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
-  .footer h4{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
-  .footer a{display:block;color:#c7ccd6;margin:8px 0;font-size:14.5px}.footer a:hover{color:#fff}
-  .footer .brand img{height:28px;margin-bottom:14px;filter:brightness(0) invert(1)}
-  .footer-bottom{border-top:1px solid #2b3242;text-align:center;padding:18px;font-size:13px;color:#8a93a3}
-  @media(max-width:720px){.footer-grid{grid-template-columns:1fr;gap:24px}.nav{padding:12px 18px}.nav-links{gap:16px}}
+:root{--dark:#1a1f2e;--blue:#2563eb;--orange:#F99601;--bg:#fff;--bg-alt:#f8f9fa;
+      --text:#1a1f2e;--text-body:#4a4a4a;--text-muted:#8a8a8a;--rule:#e5e7eb;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:var(--blue);}
+img{max-width:100%;}
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:.3s;}
+.nav.scrolled{background:rgba(26,31,46,.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.15);}
+.nav-logo img{height:36px;display:block;}
+.nav-links{display:flex;align-items:center;gap:30px;}
+.nav-links a{color:rgba(255,255,255,.72);font-size:14px;font-weight:500;transition:.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:var(--orange);color:var(--dark)!important;padding:8px 20px;border-radius:4px;font-weight:600;font-size:13px;}
+.nav-cta:hover{background:#ffaa1a;}
+/* Page hero */
+.page-hero{background:var(--dark);color:#fff;padding:150px 40px 60px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28;{% if hero_image %}background-image:url('{{ hero_image }}');{% endif %}}
+.page-hero .inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;}
+.page-hero h1{font-size:clamp(30px,4.5vw,46px);font-weight:800;line-height:1.1;}
+.page-hero p{color:rgba(255,255,255,.7);font-size:17px;margin-top:12px;max-width:640px;line-height:1.6;}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.breadcrumb a{color:rgba(255,255,255,.7);}
+/* Content */
+.wrap{max-width:860px;margin:0 auto;padding:56px 24px;}
+.wrap-wide{max-width:1140px;margin:0 auto;padding:56px 24px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:4px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:.2s;font-family:inherit;}
+.btn-primary{background:var(--orange);color:var(--dark);}.btn-primary:hover{background:#ffaa1a;}
+/* Prose */
+.prose{font-size:17px;line-height:1.75;color:var(--text-body);}
+.prose h1{font-size:30px;margin:30px 0 14px;color:var(--text);font-weight:800;}
+.prose h2{font-size:24px;margin:28px 0 12px;color:var(--text);font-weight:700;}
+.prose h3{font-size:19px;margin:22px 0 10px;color:var(--text);font-weight:700;}
+.prose p{margin:0 0 16px;}
+.prose ul,.prose ol{margin:0 0 18px 22px;}.prose li{margin:7px 0;}
+.prose a{color:var(--blue);}.prose a:hover{text-decoration:underline;}
+.prose img{border-radius:10px;margin:20px 0;}
+.prose strong{color:var(--text);}
+.prose blockquote{border-left:3px solid var(--orange);padding:4px 0 4px 18px;margin:18px 0;color:var(--text);font-style:italic;}
+/* Blog cards */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.blog-card{background:var(--bg);border:1px solid var(--rule);border-radius:8px;overflow:hidden;transition:.2s;color:inherit;display:block;}
+.blog-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.08);transform:translateY(-2px);}
+.blog-card .thumb{height:150px;background:#eef1f5 center/cover no-repeat;}
+.blog-card .bc-body{padding:20px;}
+.blog-card .date{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.blog-card h4{font-size:15px;font-weight:700;margin-bottom:8px;line-height:1.4;color:var(--text);}
+.blog-card p{font-size:13px;color:var(--text-body);line-height:1.6;}
+/* Footer */
+.footer{background:var(--dark);color:rgba(255,255,255,.5);padding:48px 40px 24px;font-size:13px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;}
+.footer h4{color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.footer a{color:rgba(255,255,255,.5);transition:.2s;display:block;margin-bottom:8px;}
+.footer a:hover{color:var(--orange);}
+.footer .brand img{height:28px;margin-bottom:16px;filter:brightness(0) invert(1);}
+.footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.footer-bottom .tn-link{color:var(--orange);}
+@media(max-width:768px){.nav{padding:12px 20px;}.nav-links a:not(.nav-cta){display:none;}
+  .page-hero{padding:120px 20px 44px;}.blog-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
-<nav class="nav">
-  <a href="/" class="nav-logo"><img src="/images/logo-color.png" alt="TeamWorking by TechNexus" style="height:34px;"></a>
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo"><img src="/images/logo-color.png" alt="TeamWorking by TechNexus"></a>
   <div class="nav-links">
-    {% for label, href in NAV %}<a href="{{ href }}">{{ label }}</a>{% endfor %}
+    <a href="/workspaces">Workspaces</a>
+    <a href="/amenities">Amenities</a>
+    <a href="/membership">Membership</a>
+    <a href="/events">Events</a>
+    <a href="/ecosystem">Ecosystem</a>
+    <a href="/blog">Insights</a>
     <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener" class="nav-cta">Book a Tour</a>
   </div>
 </nav>
+
+{% block hero %}
+<section class="page-hero">
+  <div class="inner">
+    <div class="breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; {{ hero_title or 'Page' }}</div>
+    <h1>{{ hero_title or 'TeamWorking' }}</h1>
+    {% if hero_sub %}<p>{{ hero_sub }}</p>{% endif %}
+  </div>
+</section>
+{% endblock %}
 
 {% block content %}{% endblock %}
 
@@ -57,15 +104,30 @@
     </div>
     <div>
       <h4>Explore</h4>
-      {% for label, href in NAV %}<a href="{{ href }}">{{ label }}</a>{% endfor %}
+      <a href="/workspaces">Workspaces</a><a href="/amenities">Amenities</a>
+      <a href="/events">Events</a><a href="/ecosystem">Ecosystem</a>
     </div>
     <div>
-      <h4>Connect</h4>
+      <h4>Community</h4>
+      <a href="/community-partners">Partners</a><a href="/blog">Insights</a>
+      <a href="/connecting">Connect</a><a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener">Book a Tour</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
       <a href="tel:+13129241026">+1.312.924.1026</a>
-      <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener">Book a Tour</a>
+      <a href="mailto:info@teamworking.vc">info@teamworking.vc</a>
+      <p style="margin-top:8px;">20 N. Wacker Dr., 12th Fl.<br>Chicago, IL 60606</p>
     </div>
   </div>
-  <div class="footer-bottom">© {{ year }} TeamWorking by TechNexus. All rights reserved.</div>
+  <div class="footer-bottom">
+    <span>&copy; {{ year }} TeamWorking by TechNexus. All rights reserved.</span>
+    <span>TeamWorking is the workspace of <a href="https://www.technexus.com" class="tn-link">TechNexus Venture Collaborative</a></span>
+  </div>
 </footer>
+<script>
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
+window.addEventListener('scroll',onScroll);onScroll();
+</script>
 </body>
 </html>
