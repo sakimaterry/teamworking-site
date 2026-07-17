@@ -6,8 +6,13 @@ Postgres tables `tw_pages` / `tw_articles` (isolated from technexus.com's own
 pages/articles). Falls back to a local SQLite DB when DATABASE_URL is unset,
 so the app is runnable/testable without the shared database.
 """
-import os, json
+import os, json, re
 from datetime import datetime
+
+# Rewrite hotlinked teamworking.vc images to locally-rehosted copies (/images/wp/).
+_WP_IMG = re.compile(r'https?://teamworking\.vc/wp-content/uploads/([^"\'\s)]+)')
+def rehost(s):
+    return _WP_IMG.sub(lambda m: '/images/wp/' + m.group(1).replace('/', '-'), s) if s else s
 from flask import (Flask, render_template, send_from_directory, abort,
                    redirect, jsonify, request)
 
@@ -89,6 +94,8 @@ def blog_index():
     posts = query("SELECT title,slug,excerpt,meta_description,thumbnail_url,author,"
                   "published_at,external_url FROM tw_articles WHERE published=1 "
                   "ORDER BY published_at DESC")
+    for p in posts:
+        p["thumbnail_url"] = rehost(p.get("thumbnail_url"))
     return render_template("blog_index.html", posts=posts, hero_title="Insights",
                            hero_sub="News, newsletters, and thought leadership from the TeamWorking community.",
                            hero_image=DEFAULT_HERO)
@@ -100,6 +107,8 @@ def article(slug):
         abort(404)
     if a.get("external_url"):
         return redirect(a["external_url"], code=302)
+    a["body"] = rehost(a.get("body"))
+    a["thumbnail_url"] = rehost(a.get("thumbnail_url"))
     sub = " · ".join(x for x in [a.get("author"), (str(a["published_at"])[:10] if a.get("published_at") else None)] if x)
     return render_template("article.html", a=a, hero_title=a["title"], hero_sub=sub,
                            hero_image=a.get("thumbnail_url") or "/images/collaborative.jpg")
@@ -113,6 +122,7 @@ def page(slug):
         return redirect(p["redirect_to"], code=302)
     if p.get("page_type") == "external" and p.get("external_url"):
         return redirect(p["external_url"], code=302)
+    p["body"] = rehost(p.get("body"))
     return render_template("page.html", page=p, hero_title=p["title"],
                            hero_sub=p.get("meta_description"),
                            hero_image=PAGE_HERO.get(slug, DEFAULT_HERO))
