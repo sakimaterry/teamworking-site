@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ a.title }} — TeamWorking by TechNexus{% endblock %}
+{% set meta_description = a.meta_description %}
+{% block content %}
+<div class="wrap">
+  <div style="margin-bottom:10px"><a href="/blog" style="font-size:14px">← All insights</a></div>
+  <div class="page-head">
+    <h1>{{ a.title }}</h1>
+    <div style="color:var(--text-muted);font-size:14px;margin-top:10px">
+      {% if a.author %}{{ a.author }}{% endif %}
+      {% if a.published_at %}{% if a.author %} · {% endif %}{{ a.published_at|string|truncate(10,true,'') }}{% endif %}
+    </div>
+  </div>
+  {% if a.thumbnail_url %}<img src="{{ a.thumbnail_url }}" alt="{{ a.title }}" style="border-radius:12px;margin:22px 0">{% endif %}
+  <div class="prose">{{ a.body | safe }}</div>
+</div>
+{% endblock %}
