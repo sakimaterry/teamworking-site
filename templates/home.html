@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}TeamWorking by TechNexus — Chicago's Tech-Focused Community{% endblock %}
+{% block content %}
+<section style="background:linear-gradient(135deg,#1a1f2e,#2b3552);color:#fff;padding:88px 24px;text-align:center">
+  <div style="max-width:820px;margin:0 auto">
+    <h1 style="color:#fff;font-size:46px;font-weight:800;line-height:1.15">Chicago's Tech-Focused Community</h1>
+    <p style="font-size:19px;color:#c7ccd6;margin:20px 0 30px">Where the firms that are ready to scale find a home and grow — the most connected community of entrepreneurs, innovators, and teams in Chicago.</p>
+    <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener" class="nav-cta" style="display:inline-block;padding:13px 28px;font-size:16px">Book a Tour</a>
+  </div>
+</section>
+<div class="wrap">
+  {% if page and page.body %}
+  <div class="prose">{{ page.body | safe }}</div>
+  {% else %}
+  <div class="prose"><p>Welcome to TeamWorking. Explore our
+    <a href="/workspaces">workspaces</a>, <a href="/membership">membership</a>,
+    <a href="/amenities">amenities</a>, and <a href="/blog">latest insights</a>.</p></div>
+  {% endif %}
+</div>
+{% endblock %}
