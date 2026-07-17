@@ -72,12 +72,26 @@ def home():
                   "ORDER BY published_at DESC LIMIT 6")
     return render_template("home.html", posts=posts)
 
+# Per-page hero images (real TeamWorking photos), by slug
+PAGE_HERO = {
+    "amenities": "/images/kitchen.jpg", "workspaces": "/images/office-suite.jpg",
+    "membership": "/images/office.jpg", "meeting-center": "/images/conference.jpg",
+    "executive-meeting-experience": "/images/conference.jpg", "events": "/images/event-space.jpg",
+    "ecosystem": "/images/collaborative.jpg", "community-partners": "/images/collaborative.jpg",
+    "member-resource-page-teamworking": "/images/office.jpg", "sponsorship": "/images/event-space.jpg",
+    "virtual-tour": "/images/office.jpg", "referral-program": "/images/collaborative.jpg",
+    "photo-gallery": "/images/office-suite.jpg",
+}
+DEFAULT_HERO = "/images/hero.jpg"
+
 @app.route("/blog")
 def blog_index():
     posts = query("SELECT title,slug,excerpt,meta_description,thumbnail_url,author,"
                   "published_at,external_url FROM tw_articles WHERE published=1 "
                   "ORDER BY published_at DESC")
-    return render_template("blog_index.html", posts=posts)
+    return render_template("blog_index.html", posts=posts, hero_title="Insights",
+                           hero_sub="News, newsletters, and thought leadership from the TeamWorking community.",
+                           hero_image=DEFAULT_HERO)
 
 @app.route("/blog/<slug>")
 def article(slug):
@@ -86,7 +100,9 @@ def article(slug):
         abort(404)
     if a.get("external_url"):
         return redirect(a["external_url"], code=302)
-    return render_template("article.html", a=a)
+    sub = " · ".join(x for x in [a.get("author"), (str(a["published_at"])[:10] if a.get("published_at") else None)] if x)
+    return render_template("article.html", a=a, hero_title=a["title"], hero_sub=sub,
+                           hero_image=a.get("thumbnail_url") or "/images/collaborative.jpg")
 
 @app.route("/<slug>")
 def page(slug):
@@ -97,7 +113,9 @@ def page(slug):
         return redirect(p["redirect_to"], code=302)
     if p.get("page_type") == "external" and p.get("external_url"):
         return redirect(p["external_url"], code=302)
-    return render_template("page.html", page=p)
+    return render_template("page.html", page=p, hero_title=p["title"],
+                           hero_sub=p.get("meta_description"),
+                           hero_image=PAGE_HERO.get(slug, DEFAULT_HERO))
 
 @app.route("/api/contact", methods=["POST"])
 def api_contact():
@@ -111,9 +129,12 @@ def api_contact():
 
 @app.errorhandler(404)
 def not_found(e):
-    return render_template("page.html", page={"title": "Page not found",
-            "body": "<p>Sorry, that page doesn’t exist. "
-                    "<a href='/'>Return home</a>.</p>"}), 404
+    return render_template("page.html",
+            page={"title": "Page not found", "meta_description": None,
+                  "body": "<p>Sorry, that page doesn’t exist. "
+                          "<a href='/'>Return home</a> or browse our "
+                          "<a href='/blog'>insights</a>.</p>"},
+            hero_title="Page not found", hero_image=DEFAULT_HERO), 404
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 80)))
