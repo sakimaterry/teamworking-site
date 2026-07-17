@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}TeamWorking by TechNexus{% endblock %}</title>
+{% if meta_description %}<meta name="description" content="{{ meta_description }}">{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--dark:#1a1f2e;--blue:#2563eb;--blue-light:#3b82f6;--orange:#F99601;
+        --bg:#fff;--bg-alt:#f8f9fa;--text:#1a1f2e;--text-body:#4a4a4a;--text-muted:#8a8a8a;--rule:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text-body);background:var(--bg);line-height:1.65}
+  a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+  img{max-width:100%;height:auto}
+  .nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+       padding:14px 32px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+  .nav-links{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+  .nav-links a{color:var(--text);font-weight:500;font-size:14.5px}
+  .nav-cta{background:var(--orange);color:#fff!important;padding:9px 18px;border-radius:8px;font-weight:600}
+  .nav-cta:hover{filter:brightness(.95);text-decoration:none}
+  .wrap{max-width:900px;margin:0 auto;padding:56px 24px}
+  .wrap-wide{max-width:1140px;margin:0 auto;padding:56px 24px}
+  h1,h2,h3,h4{color:var(--text);line-height:1.25;font-weight:700}
+  .prose h1{font-size:34px;margin:28px 0 14px}.prose h2{font-size:26px;margin:26px 0 12px}
+  .prose h3{font-size:20px;margin:22px 0 10px}
+  .prose p{margin:0 0 16px;font-size:17px}.prose ul,.prose ol{margin:0 0 16px 22px}.prose li{margin:6px 0}
+  .prose img{border-radius:10px;margin:18px 0}
+  .page-head{border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:8px}
+  .page-head h1{font-size:38px;font-weight:800}
+  .footer{background:var(--dark);color:#c7ccd6;margin-top:60px}
+  .footer-grid{max-width:1140px;margin:0 auto;padding:52px 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+  .footer h4{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+  .footer a{display:block;color:#c7ccd6;margin:8px 0;font-size:14.5px}.footer a:hover{color:#fff}
+  .footer .brand img{height:28px;margin-bottom:14px;filter:brightness(0) invert(1)}
+  .footer-bottom{border-top:1px solid #2b3242;text-align:center;padding:18px;font-size:13px;color:#8a93a3}
+  @media(max-width:720px){.footer-grid{grid-template-columns:1fr;gap:24px}.nav{padding:12px 18px}.nav-links{gap:16px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="/" class="nav-logo"><img src="/images/logo-color.png" alt="TeamWorking by TechNexus" style="height:34px;"></a>
+  <div class="nav-links">
+    {% for label, href in NAV %}<a href="{{ href }}">{{ label }}</a>{% endfor %}
+    <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener" class="nav-cta">Book a Tour</a>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="brand">
+      <img src="/images/logo-color.png" alt="TeamWorking">
+      <p style="line-height:1.7;">A private, vibrant community designed specifically for founders, innovators, and growing teams in Chicago.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      {% for label, href in NAV %}<a href="{{ href }}">{{ label }}</a>{% endfor %}
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <a href="tel:+13129241026">+1.312.924.1026</a>
+      <a href="{{ BOOK_TOUR }}" target="_blank" rel="noopener">Book a Tour</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© {{ year }} TeamWorking by TechNexus. All rights reserved.</div>
+</footer>
+</body>
+</html>
