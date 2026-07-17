@@ -1,0 +1,4 @@
+tw_local.db
+__pycache__/
+*.pyc
+data/
