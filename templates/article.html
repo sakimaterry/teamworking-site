@@ -3,15 +3,11 @@
 {% set meta_description = a.meta_description %}
 {% block content %}
 <div class="wrap">
-  <div style="margin-bottom:10px"><a href="/blog" style="font-size:14px">← All insights</a></div>
-  <div class="page-head">
-    <h1>{{ a.title }}</h1>
-    <div style="color:var(--text-muted);font-size:14px;margin-top:10px">
-      {% if a.author %}{{ a.author }}{% endif %}
-      {% if a.published_at %}{% if a.author %} · {% endif %}{{ a.published_at|string|truncate(10,true,'') }}{% endif %}
-    </div>
-  </div>
-  {% if a.thumbnail_url %}<img src="{{ a.thumbnail_url }}" alt="{{ a.title }}" style="border-radius:12px;margin:22px 0">{% endif %}
+  <div style="margin-bottom:18px;"><a href="/blog">&larr; All insights</a></div>
+  {% if a.thumbnail_url %}<img src="{{ a.thumbnail_url }}" alt="{{ a.title }}" style="width:100%;border-radius:12px;margin-bottom:24px;">{% endif %}
   <div class="prose">{{ a.body | safe }}</div>
+  <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--rule);">
+    <a href="/blog">&larr; Back to all insights</a>
+  </div>
 </div>
 {% endblock %}
