@@ -45,7 +45,9 @@ img{max-width:100%;display:block;}
 
 /* Hero */
 .hero{min-height:100vh;background:var(--dark);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 40px 80px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:url('/images/hero.jpg') center/cover;opacity:0.2;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease-in-out;}
+.hero-slide.active{opacity:0.30;}
 .hero-content{position:relative;z-index:1;max-width:800px;}
 .hero h1{font-size:clamp(36px,5vw,56px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;}
 .hero h1 span{color:var(--orange);}
@@ -179,11 +181,11 @@ img{max-width:100%;display:block;}
     "url": "https://www.technexus.com"
   },
   "amenityFeature": [
-    {"@type": "LocationFeatureSpecification", "name": "High-Speed WiFi", "value": "400Mbps"},
+    {"@type": "LocationFeatureSpecification", "name": "High-Speed WiFi"},
     {"@type": "LocationFeatureSpecification", "name": "Meeting Rooms"},
     {"@type": "LocationFeatureSpecification", "name": "Event Space", "value": "Up to 175 guests"},
     {"@type": "LocationFeatureSpecification", "name": "Fitness Center"},
-    {"@type": "LocationFeatureSpecification", "name": "Rooftop Terrace", "value": "10,000 sq ft"},
+    {"@type": "LocationFeatureSpecification", "name": "Rooftop Terrace"},
     {"@type": "LocationFeatureSpecification", "name": "Podcast Studio"}
   ],
   "floorSize": {"@type": "QuantitativeValue", "value": 60000, "unitCode": "FTK"},
@@ -230,7 +232,7 @@ img{max-width:100%;display:block;}
       "name": "What amenities are included at TeamWorking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Amenities include 400Mbps WiFi, conference rooms, a 10,000 sq ft rooftop terrace, fitness center, podcast studio with Shure equipment, 3 kitchens with unlimited beverages, wellness rooms, printing, mail services, and 24/7 keycard access."
+        "text": "Amenities include high-speed symmetrical fiber WiFi, conference rooms, a rooftop terrace, fitness center, podcast studio with Shure equipment, 3 kitchens with unlimited beverages, wellness rooms, printing, mail services, and 24/7 keycard access."
       }
     }
   ]
@@ -255,6 +257,13 @@ img{max-width:100%;display:block;}
 
 <!-- Hero -->
 <section class="hero">
+  <div class="hero-bg" id="hero-bg">
+    <div class="hero-slide active" style="background-image:url('/images/collaborative.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/office-suite.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/conference.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/event-space.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/office.jpg')"></div>
+  </div>
   <div class="hero-content fade-in">
     <h1>Chicago's <span>Tech-Focused</span> Community</h1>
     <p>Born out of TechNexus Venture Collaborative, this is where firms ready to scale find a home and grow — without long-term obligations.</p>
@@ -276,7 +285,7 @@ img{max-width:100%;display:block;}
 <!-- Entity Definition (LLMO) -->
 <div class="section" style="padding:48px 40px 0;">
   <div class="entity-def fade-in">
-    <p>TeamWorking by TechNexus is a private, tech-focused workspace community located in Chicago's Civic Opera Building at 20 N. Wacker Drive. Established in 2007 as part of TechNexus Venture Collaborative, TeamWorking offers over 60,000 square feet of flexible office suites, private offices, coworking spaces, meeting rooms, and event venues for technology companies and startups. The community currently houses 75+ technology companies and has grown to more than 750 alumni, including graduates like Capital One, Rally Health, Threekit, and Ocient. Amenities include 400Mbps WiFi, a 10,000 sq ft rooftop terrace, fitness center, Shure-equipped podcast studio, and event space for up to 175 guests.</p>
+    <p>TeamWorking by TechNexus is a private, tech-focused workspace community located in Chicago's Civic Opera Building at 20 N. Wacker Drive. Established in 2007 as part of TechNexus Venture Collaborative, TeamWorking offers over 60,000 square feet of flexible office suites, private offices, coworking spaces, meeting rooms, and event venues for technology companies and startups. The community currently houses 75+ technology companies and has grown to more than 750 alumni, including graduates like Capital One, Rally Health, Threekit, and Ocient. Amenities include high-speed symmetrical fiber WiFi, a rooftop terrace, fitness center, Shure-equipped podcast studio, and event space for up to 175 guests.</p>
   </div>
 </div>
 
@@ -344,9 +353,9 @@ img{max-width:100%;display:block;}
       <p>Everything you need to do your best work — from high-speed internet to a rooftop terrace with skyline views.</p>
     </div>
     <div class="amenities-grid">
-      <div class="amenity fade-in"><div class="icon">&#9889;</div><h4>Ultra-Fast WiFi</h4><p>400Mbps up/down with 1Gbps backbone. Secure ethernet at every desk.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#9889;</div><h4>Ultra-Fast WiFi</h4><p>High-speed symmetrical fiber internet with secure ethernet at every desk.</p></div>
       <div class="amenity fade-in"><div class="icon">&#127979;</div><h4>Conference Rooms</h4><p>High-tech meeting rooms with A/V. Reserve via space management software.</p></div>
-      <div class="amenity fade-in"><div class="icon">&#127749;</div><h4>Rooftop Terrace</h4><p>10,000 sq ft outdoor terrace on the 15th floor with private WiFi.</p></div>
+      <div class="amenity fade-in"><div class="icon">&#127749;</div><h4>Rooftop Terrace</h4><p>Outdoor rooftop terrace on the 15th floor with skyline views and private WiFi.</p></div>
       <div class="amenity fade-in"><div class="icon">&#127947;</div><h4>Fitness Center</h4><p>On-site gym on the 15th floor with showers and lockers. Open 7 days.</p></div>
       <div class="amenity fade-in"><div class="icon">&#127908;</div><h4>Podcast Studio</h4><p>Professional studio with Shure plug-and-play tech and green screen editing suite.</p></div>
       <div class="amenity fade-in"><div class="icon">&#9749;</div><h4>3 Full Kitchens</h4><p>Unlimited coffee, tea, and soft drinks via Coca-Cola Freestyle. Refrigerators and microwaves.</p></div>
@@ -556,6 +565,18 @@ img{max-width:100%;display:block;}
 </footer>
 
 <script>
+// Hero background slideshow (matches live site's rotating hero)
+(function(){
+  const slides = document.querySelectorAll('#hero-bg .hero-slide');
+  if (slides.length > 1) {
+    let i = 0;
+    setInterval(() => {
+      slides[i].classList.remove('active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('active');
+    }, 6000);
+  }
+})();
 // Scroll nav
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
