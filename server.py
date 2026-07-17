@@ -67,8 +67,10 @@ def images(p):
 
 @app.route("/")
 def home():
-    page = one("SELECT * FROM tw_pages WHERE slug='home' AND published=1")
-    return render_template("home.html", page=page)
+    posts = query("SELECT title,slug,excerpt,meta_description,published_at,external_url "
+                  "FROM tw_articles WHERE published=1 AND external_url IS NULL "
+                  "ORDER BY published_at DESC LIMIT 6")
+    return render_template("home.html", posts=posts)
 
 @app.route("/blog")
 def blog_index():
