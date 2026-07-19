@@ -1,0 +1,109 @@
+{
+  "title": "Membership",
+  "meta_description": "Community & flexible memberships for founders, investors, and operators. Day passes, Flex+ membership, team suites, and virtual office at Chicago's Civic Opera Building.",
+  "blocks": [
+    {
+      "type": "hero",
+      "data": {
+        "eyebrow": "Membership",
+        "heading": "The room where Chicago's next big thing gets started.",
+        "sub": "Community & flexible memberships for founders, investors, and operators who know that proximity is the point.",
+        "image": "/images/wp/2023-07-BF2A7675-2048x1366.jpg",
+        "cta": { "label": "Take a virtual tour", "href": "/virtual-tour" }
+      }
+    },
+    {
+      "type": "gallery",
+      "data": {
+        "layout": "grid",
+        "images": [
+          "/images/wp/2023-07-BF2A7675-2048x1366.jpg",
+          "/images/wp/2022-12-BF2A7800.jpg",
+          "/images/wp/2022-11-22_20NWackerDrive_1200FloorTheCivicOperaBuilding_2010_HiRes-2048x1365.jpg",
+          "/images/wp/2022-12-BF2A7818-2048x1366.jpg",
+          "/images/wp/2022-11-08_20NWackerDrive_1200FloorTheCivicOperaBuilding_54_Office_HiRes-2048x1365.jpg",
+          "/images/wp/2022-12-BF2A7714-2048x1366.jpg",
+          "/images/wp/2021-09-20-N-Wacker-Chicago-IL-60606-print-014-013-Kitchen-Facilities-3791x2530-300dpi-2048x1367.jpg",
+          "/images/wp/2022-12-BF2A7579-2048x1366.jpg"
+        ]
+      }
+    },
+    {
+      "type": "pricing_tiers",
+      "data": {
+        "heading": "Simple, transparent pricing",
+        "sub": "Flexible terms. Activating your access is easy and seamless.",
+        "tiers": [
+          {
+            "name": "Try the Room — Day Pass",
+            "lede": "No commitment. Just come in and see what you've been missing. One-time purchase, no membership required.",
+            "features": [
+              "Full access to all shared workspace",
+              "3 kitchens — Big Shoulders Coffee, Bevi, Coca-Cola Freestyle, local beer on tap",
+              "Self-bookable call rooms & phone booths",
+              "Fast + secure Wi-Fi",
+              "Wellness and parent rooms",
+              "Discounts on Creator/Podcast Studio access"
+            ],
+            "cta": { "label": "Buy a Day Pass", "href": "https://calendly.com/teamworking" },
+            "fine": "Quick checkout — card details only. No account setup or recurring membership required."
+          },
+          {
+            "name": "Flex+ Membership",
+            "price": "$249 / month",
+            "featured": true,
+            "lede": "Community access, shared workspaces, business address, and a place that puts you in the room. Mon–Fri, 9AM–5PM access.",
+            "features": [
+              "Self-bookable huddle rooms & phone booths",
+              "3 full kitchens + local beer on tap",
+              "Online community access + member network",
+              "Business mailing address — Civic Opera Building",
+              "Secure mailroom handling",
+              "Steps from Union Station, Ogilvie (OTC) & CTA",
+              "Discounted member-pricing for select event spaces & board rooms",
+              "Full ecosystem event & community programming — networking events, founder dinners, investor salons, growth labs, and more"
+            ],
+            "cta": { "label": "Join as a Member", "href": "https://calendly.com/teamworking" }
+          },
+          {
+            "name": "Team Memberships & Private Office Suites",
+            "lede": "For teams who need more than a desk — a dedicated homebase in the ecosystem. Team memberships start at 3+ members; private offices by request, capacity limited.",
+            "features": [
+              "All Flex+ Membership benefits… and more",
+              "Flexible team membership pricing (3+ members)",
+              "Discounted member-pricing for all event & meeting room space",
+              "Tools and tech-stack perks — software, cloud & partner discounts",
+              "Creator Studio access (podcast & editing suite)",
+              "Dedicated offices & short-term leases available, pending availability"
+            ],
+            "cta": { "label": "Inquire About Team Options", "href": "https://calendly.com/teamworking" }
+          },
+          {
+            "name": "Virtual Office — Business Address",
+            "price": "$99 / month",
+            "lede": "Need a Chicago address without the desk? Business mailing address + secure mailroom at the Civic Opera Building — fully remote-friendly. Includes 1 FlexDay pass per month.",
+            "features": [
+              "Prestigious Civic Opera Building business address",
+              "Secure mailroom handling & forwarding",
+              "1 FlexDay pass per month",
+              "Online community access"
+            ],
+            "cta": { "label": "Get Started", "href": "https://calendly.com/teamworking" }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta_band",
+      "data": {
+        "theme": "dark",
+        "heading": "You can't schedule serendipity. You can only put yourself in its path.",
+        "body": "TechNexus community membership gives you access to what exists today — and a stake in what the Chicago venture ecosystem becomes.",
+        "buttons": [
+          { "label": "Connect With Us", "href": "https://calendly.com/teamworking", "style": "primary" },
+          { "label": "Ask the membership team →", "href": "mailto:info@teamworking.vc", "style": "ghost" }
+        ]
+      }
+    }
+  ]
+}
