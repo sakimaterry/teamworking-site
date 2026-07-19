@@ -113,10 +113,18 @@ def article(slug):
     return render_template("article.html", a=a, hero_title=a["title"], hero_sub=sub,
                            hero_image=a.get("thumbnail_url") or "/images/collaborative.jpg")
 
+@app.route("/blocks.css")
+def blocks_css():
+    return send_from_directory(HERE, "blocks.css", mimetype="text/css")
+
 @app.route("/membership")
 def membership():
-    # Bespoke, live-faithful layout (hero + gallery + pricing tiers + CTA)
-    return render_template("membership.html")
+    # Block-composed page (AXL Page Builder engine). Content = content/membership.blocks.json.
+    import blocks as _blocks
+    doc = json.load(open(os.path.join(HERE, "content", "membership.blocks.json"), encoding="utf-8"))
+    return render_template("blocks_page.html", title=doc.get("title", "Membership"),
+                           meta_description=doc.get("meta_description"),
+                           blocks_html=_blocks.render_page(doc))
 
 @app.route("/<slug>")
 def page(slug):
