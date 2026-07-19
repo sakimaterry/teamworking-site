@@ -45,6 +45,22 @@ def one(sql, params=()):
     rows = query(sql, params)
     return rows[0] if rows else None
 
+# Load the shared block stylesheet once at startup; inlined into pages via base.html
+# (avoids a separate static request). Tries a few locations to be deploy-robust.
+def _load_block_css():
+    for base in (HERE, os.getcwd(), "/app", os.path.dirname(HERE)):
+        try:
+            with open(os.path.join(base, "blocks.css"), encoding="utf-8") as f:
+                return f.read()
+        except Exception:
+            continue
+    return ""
+BLOCK_CSS = _load_block_css()
+
+@app.context_processor
+def _inject_block_css():
+    return {"block_css": BLOCK_CSS}
+
 # Curated top nav (slugs resolve to tw_pages). Book a Tour is an external CTA.
 NAV = [
     ("Workspaces", "/workspaces"), ("Membership", "/membership"),
