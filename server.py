@@ -113,7 +113,7 @@ def article(slug):
     return render_template("article.html", a=a, hero_title=a["title"], hero_sub=sub,
                            hero_image=a.get("thumbnail_url") or "/images/collaborative.jpg")
 
-@app.route("/blocks.css")
+@app.route("/assets/blocks.css")
 def blocks_css():
     return send_from_directory(HERE, "blocks.css", mimetype="text/css")
 
