@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} — TeamWorking by TechNexus{% endblock %}
+{# Block-composed pages render their own hero as the first block #}
+{% block hero %}{% endblock %}
+{% block content %}{{ blocks_html | safe }}{% endblock %}
